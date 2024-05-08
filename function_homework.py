@@ -1,9 +1,6 @@
-def print_params(number):
-    while number > 1:
-        print("Print number", number)
-        number -= 1
-        print("New number", number)
+def print_params(name):
+    print("Здравствуйте,", name)
+    print("Всего доброго,", name)
 
-
-print_params(3)
-print_params(2)
+name = input("Введите что-нибудь: ")
+print_params(name)
