@@ -4,6 +4,17 @@ class Animal:
         self.fed = False
         self.name = name  # Индивидуальное название животного
 
+    def eat(self, food):
+        if isinstance(food, Plant):
+            if food.edible:
+                print(f"{self.name} съел {food.name}")
+                self.fed = True
+            else:
+                print(f"{self.name} не стал есть {food.name}")
+                self.alive = False
+        else:
+            print(f"{food.name} не является растением. {self.name} не может это съесть.")
+
 
 # Класс-родитель для растений
 class Plant:
@@ -16,30 +27,15 @@ class Plant:
 class Mammal(Animal):
     # Создаём метод eat для млекопитающих, позволяющий им есть растения
     def eat(self, food):
-        if isinstance(food, Plant):  # Проверяем, является ли еда растением
-            if food.edible:  # Если растение съедобное
-                print(f"{self.name} съел {food.name}")  # Животное съело растение
-                self.fed = True  # Животное накормлено
-            else:  # Если несъедобное
-                print(f"{self.name} не стал есть {food.name}")  # Животное отказалось от еды
-                self.alive = False  # Животное погибло из-за несъедобного растения
-        else:  # Если еда не является растением
-            print(f"{food.name} не является растением. {self.name} не может это съесть.")
+        Animal.eat(self, food)
 
 
 # Создаём класс-наследник для Животных - Хищники
 class Predator(Animal):
     # Создаём метод eat для хищников, позволяющий им есть растения
     def eat(self, food):
-        if isinstance(food, Plant):
-            if food.edible:
-                print(f"{self.name} съел {food.name}")
-                self.fed = True
-            else:
-                print(f"{self.name} не стал есть {food.name}")
-                self.alive = False
-        else:
-            print(f"{food.name} не является растением. {self.name} не может это съесть.")
+        Animal.eat(self, food)
+
 
 
 # Создаём класс-наследник для Растений - Цветы
@@ -82,6 +78,9 @@ a2.eat(p2)  # Хатико съел Заводной апельсин
 
 # Выводим, жив ли хищник после попытки съесть несъедобное растение
 print(a1.alive)  # False
+
+# Выводим, накормлено ли млекопитающее после съедения съедобного фрукта
+print(a2.fed)  # True
 
 # Выводим, накормлено ли млекопитающее после съедения съедобного фрукта
 print(a2.fed)  # True
