@@ -26,15 +26,13 @@ class Plant:
 # Создаём класс-наследник для Животных - Млекопитающие
 class Mammal(Animal):
     # Создаём метод eat для млекопитающих, позволяющий им есть растения
-    def eat(self, food):
-        Animal.eat(self, food)
+    pass
 
 
 # Создаём класс-наследник для Животных - Хищники
 class Predator(Animal):
     # Создаём метод eat для хищников, позволяющий им есть растения
-    def eat(self, food):
-        Animal.eat(self, food)
+    pass
 
 
 
