@@ -6,6 +6,8 @@ team1_time = 1552.512
 team2_time = 2153.31451
 tasks_total = score1 + score2
 time_avg = round(((team1_time + team2_time) / tasks_total), 1)
+
+
 def challenge_result():
     if score1 > score2 or score1 == score2 and team1_time > team2_time:
         result = 'Победа команды Мастера кода!'
